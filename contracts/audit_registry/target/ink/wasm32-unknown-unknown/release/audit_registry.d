@@ -1,0 +1,1 @@
+/Users/argenisdelarosa/Downloads/web3-contract-analyzer/contracts/audit_registry/target/ink/wasm32-unknown-unknown/release/audit_registry.wasm: /Users/argenisdelarosa/Downloads/web3-contract-analyzer/contracts/audit_registry/src/lib.rs

@@ -1,0 +1,9 @@
+/Users/argenisdelarosa/Downloads/web3-contract-analyzer/contracts/audit_registry/target/ink/wasm32-unknown-unknown/release/deps/libink_primitives-16ba46fd32f1a41e.rmeta: /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/lib.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/key.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/types.rs
+
+/Users/argenisdelarosa/Downloads/web3-contract-analyzer/contracts/audit_registry/target/ink/wasm32-unknown-unknown/release/deps/libink_primitives-16ba46fd32f1a41e.rlib: /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/lib.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/key.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/types.rs
+
+/Users/argenisdelarosa/Downloads/web3-contract-analyzer/contracts/audit_registry/target/ink/wasm32-unknown-unknown/release/deps/ink_primitives-16ba46fd32f1a41e.d: /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/lib.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/key.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/types.rs
+
+/Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/lib.rs:
+/Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/key.rs:
+/Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ink_primitives-5.1.1/src/types.rs:

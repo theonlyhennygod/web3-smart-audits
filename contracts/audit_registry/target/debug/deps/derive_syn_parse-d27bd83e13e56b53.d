@@ -1,0 +1,8 @@
+/Users/argenisdelarosa/Downloads/web3-contract-analyzer/contracts/audit_registry/target/debug/deps/libderive_syn_parse-d27bd83e13e56b53.dylib: /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/lib.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/error_macros.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/fields.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/variants.rs
+
+/Users/argenisdelarosa/Downloads/web3-contract-analyzer/contracts/audit_registry/target/debug/deps/derive_syn_parse-d27bd83e13e56b53.d: /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/lib.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/error_macros.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/fields.rs /Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/variants.rs
+
+/Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/lib.rs:
+/Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/error_macros.rs:
+/Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/fields.rs:
+/Users/argenisdelarosa/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/derive-syn-parse-0.2.0/src/variants.rs:

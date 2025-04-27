@@ -1,0 +1,43 @@
+# Smart-Contract Audit Platform (Web3 SaaS MVP)
+
+## 🚀 Project Summary
+Build a full-stack Web3 SaaS that lets anyone submit EVM or Polkadot-parachain smart contracts for instant security & cost analysis. Users pay a small on-chain fee (DOT, ETH or credit card), then our engine scans the contract (static-analysis + AI patterns), simulates gas across chains, and returns a risk score, detailed vulnerability findings, and estimated deployment cost. Auditors can earn bounties; projects gain trust.
+
+---
+
+## 🎯 Key Features
+
+- [X] **Wallet-First Authentication**  
+    - [X] Connect via Polkadot.js or RainbowKit (MetaMask, WalletConnect)  
+    - [X] Sign-in with on-chain signature → session tracked in Neon DB **(Implemented)**
+
+- [ ] **Contract Submission & Marketplace**  
+    - [ ] Submit contract address or upload Solidity file **(UI exists, Frontend logic missing, Backend API ready)**
+    - [ ] Optional bounty amount (DOT / USDC) **(UI exists, Frontend logic missing, Backend API ready)**
+    - [ ] Marketplace displays pending audits, bounties, statuses **(UI exists with mock data, Backend API needed)**
+
+- [ ] **Audit Engine**  
+    - [ ] **Phase 1 (MVP):** Regex/static checks (tx.origin, delegatecall, no SafeMath, missing onlyOwner) **(Logic duplicated in API, UI uses mock data)**
+    - [ ] **Phase 2:** AI-enhanced analysis (GPT/static patterns) **(Not Started)**
+    - [ ] Returns severity-tagged findings, overall risk score **(Logic exists, UI uses mock data)**
+
+- [ ] **Gas Cost Simulation**  
+    - [ ] Hardhat/Polkadot testnet simulate deploy & function calls **(Not Started - Mock logic only)**
+    - [ ] Show cost per chain (Ethereum, Polkadot parachains) **(UI exists with mock data)**
+
+- [ ] **Payment Flows**  
+    - [X] **Mock** payment modal for MVP **(UI simulates, Backend records)**
+    - [ ] **Real** on-chain: Polkadot testnet DOT transfer **(Not Started)**
+
+- [ ] **User Dashboard & Profiles**  
+    - [ ] “My Submissions” + “My Audits” + “My Earnings” pages **(UI uses mock data, Backend fetches Submissions/Earnings but not Audits)**
+    - [ ] History of audits, downloadable PDF reports **(Not Started)**
+
+- [ ] **Admin Panel**  
+    - [ ] View all contracts, manage bounties, approve/reject audits **(Backend fetches contracts, UI uses mock data; Bounty management missing; Basic approve/reject API exists, UI buttons placeholders)**
+    - [X] Neon DB-backed roles & permissions **(Backend checks role, API can update role)**
+
+- [X] **Deployment & Scaling**  
+    - [X] Next.js (App Router) + TypeScript + Tailwind CSS  
+    - [X] Neon DB for Auth & Postgres DB  
+    - [X] Vercel for frontend, serverless API routes **(Project is structured for Vercel)**

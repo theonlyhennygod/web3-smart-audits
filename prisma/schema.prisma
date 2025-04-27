@@ -1,0 +1,178 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  walletAddress   String    @unique @map("wallet_address")
+  displayName     String?   @map("display_name")
+  email           String?
+  role            Role      @default(user)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime  @default(now()) @map("updated_at") @db.Timestamptz
+  totalEarnings   Decimal   @default(0) @map("total_earnings") @db.Decimal(18, 2)
+  reputationScore Int       @default(0) @map("reputation_score")
+  completedAudits Int       @default(0) @map("completed_audits")
+  
+  contracts       ContractSubmission[]
+  payments        Payment[]
+  sessions        Session[]
+
+  @@map("users")
+}
+
+model ContractSubmission {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId          String    @map("user_id") @db.Uuid
+  contractName    String    @map("contract_name")
+  contractAddress String?   @map("contract_address")
+  contractType    ContractType
+  chain           Chain
+  bountyAmount    Decimal   @default(0) @map("bounty_amount") @db.Decimal(18, 2)
+  bountyToken     TokenType
+  status          Status    @default(pending)
+  riskScore       Int?      @map("risk_score")
+  contractCode    String?   @map("contract_code") @db.Text
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime  @default(now()) @map("updated_at") @db.Timestamptz
+  
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  auditFindings   AuditFinding[]
+  gasSimulations  GasSimulation[]
+  payments        Payment[]
+
+  @@map("contract_submissions")
+}
+
+model AuditFinding {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  contractId      String    @map("contract_id") @db.Uuid
+  title           String
+  description     String    @db.Text
+  severity        Severity
+  codeSnippet     String?   @map("code_snippet") @db.Text
+  recommendation  String    @db.Text
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  
+  contract        ContractSubmission @relation(fields: [contractId], references: [id], onDelete: Cascade)
+
+  @@map("audit_findings")
+}
+
+model GasSimulation {
+  id                String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  contractId        String    @map("contract_id") @db.Uuid
+  chain             String
+  deploymentCost    String    @map("deployment_cost")
+  deploymentCostUsd String    @map("deployment_cost_usd")
+  functionCosts     Json      @map("function_costs")
+  createdAt         DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  
+  contract          ContractSubmission @relation(fields: [contractId], references: [id], onDelete: Cascade)
+
+  @@map("gas_simulations")
+}
+
+model Payment {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId          String    @map("user_id") @db.Uuid
+  contractId      String    @map("contract_id") @db.Uuid
+  amount          Decimal   @db.Decimal(18, 2)
+  currency        Currency
+  paymentMethod   PaymentMethod @map("payment_method")
+  transactionHash String?   @map("transaction_hash")
+  status          PaymentStatus @default(pending)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  contract        ContractSubmission @relation(fields: [contractId], references: [id], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+model Session {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model AuthChallenge {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  walletAddress String    @unique @map("wallet_address")
+  nonce         String
+  expiresAt     DateTime  @map("expires_at") @db.Timestamptz
+  createdAt     DateTime  @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("auth_challenges")
+}
+
+enum Role {
+  user
+  auditor
+  admin
+}
+
+enum ContractType {
+  solidity
+  ink
+  rust
+}
+
+enum Chain {
+  ethereum
+  bsc
+  polkadot
+  kusama
+  other
+}
+
+enum Status {
+  pending
+  in_progress
+  completed
+  rejected
+}
+
+enum Severity {
+  high
+  medium
+  low
+  info
+}
+
+enum Currency {
+  DOT
+  USDC
+  ETH
+  USD
+}
+
+enum PaymentMethod {
+  crypto
+  credit_card
+}
+
+enum PaymentStatus {
+  pending
+  completed
+  failed
+}
+
+enum TokenType {
+  DOT
+  USDC
+  ETH
+}
